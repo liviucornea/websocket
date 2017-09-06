@@ -1,0 +1,16 @@
+<project name="deployment" basedir="." default="all">
+    <property name="war.file" value="C:/workspace/websocket/target/websocketservice.war" />
+    <property name="destination" value="c:/JavaWebServers/apache-tomcat-8.5.14/webapps/websocket" />
+
+    <target name="all">
+        <echo message="building project for deployment..." />
+
+        <unzip dest="${destination}">
+            <fileset dir="C:/workspace/websocket/target">
+                <include name="websocketservice.war"/>
+            </fileset>
+        </unzip>
+
+        <touch file="${destination}/WEB-INF/web.xml"/>
+    </target>
+</project>
